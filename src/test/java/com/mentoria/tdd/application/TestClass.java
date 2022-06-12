@@ -6,7 +6,10 @@ import com.mentoria.tdd.domain.RemoteCategoryResponseDto;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -41,11 +44,27 @@ class TestClass {
     @Test
     void should_fetch_first_level_remote_category_list_from_marketplace() {
         final var expected = buildWebClientExpectedResult();
-        final var remoteCategoryService;
+        final var remoteCategoryService = new StubRemoteCategoryService(buildRemoteServiceResponseStub());
         RemoteCategoryWebClient webClient = new RemoteCategoryWebClient(remoteCategoryService);
         final var result = webClient.getFirstLevelCategories();
 
         assertThat(result).isEqualTo(expected);
+    }
+
+    private Map<Integer, RemoteCategoryResponseDto> buildRemoteServiceResponseStub() {
+        final var categoryOne = new RemoteCategoryDto(1, "Cat A");
+        final var categoryTwo = new RemoteCategoryDto(2, "Cat B");
+        final var pageOne = new RemoteCategoryResponseDto(1, 3, List.of(categoryOne, categoryTwo));
+
+
+        final var categoryThree = new RemoteCategoryDto(3, "Cat 3");
+        final var pageTwo = new RemoteCategoryResponseDto(2, 3, Collections.singletonList(categoryThree));
+
+        var responseMap = new HashMap<Integer, RemoteCategoryResponseDto>();
+        responseMap.put(1, pageOne);
+        responseMap.put(2, pageTwo);
+
+        return responseMap;
     }
 
     private List<RemoteCategoryDto> buildWebClientExpectedResult() {
