@@ -1,6 +1,7 @@
 package com.mentoria.tdd.application;
 
 import com.mentoria.tdd.domain.Category;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public class TestClass {
 
     private final CategoryService service = new CategoryService();
 
+    @Disabled
     @Test
     void should_return_first_level_categories() {
         final var expected = buildExpectedResultSample();
@@ -26,7 +28,6 @@ public class TestClass {
         final var categoryThree = new Category("3", "Cat C");
 
         return List.of(categoryOne, categoryTwo, categoryThree);
-
     }
 
     private class CategoryService {
