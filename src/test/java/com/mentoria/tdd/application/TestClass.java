@@ -56,8 +56,9 @@ class TestClass {
     }
 
     private class RemoteCategoryWebClient {
+        private RemoteCategoryService remoteCategoryService;
+
         public List<RemoteCategoryDto> getFirstLevelCategories() {
-            RemoteCategoryService remoteCategoryService;
             RemoteCategoryResponseDto response = remoteCategoryService.getFirstLevelPaginated(1);
             return response.getElements();
         }
