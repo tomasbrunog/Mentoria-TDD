@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class TestClass {
+class TestClass {
 
     private final CategoryService service = new CategoryService();
 
@@ -34,5 +34,17 @@ public class TestClass {
         public List<Category> getFirstLevelCategories() {
             throw new RuntimeException("Not implemented");
         }
+    }
+
+    @Test
+    void should_fetch_first_level_remote_category_list_from_marketplace() {
+        final var expected = buildWebClientExpectedResult();
+        final var result = webClient.getFirstLevelCategories();
+
+        assertThat(result).isEqualsTo(expected);
+    }
+
+    private List<RemoteCategoryDto> buildWebClientExpectedResult() {
+        return null;
     }
 }
