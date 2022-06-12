@@ -41,7 +41,8 @@ class TestClass {
     @Test
     void should_fetch_first_level_remote_category_list_from_marketplace() {
         final var expected = buildWebClientExpectedResult();
-        RemoteCategoryWebClient webClient = new RemoteCategoryWebClient();
+        final var remoteCategoryService;
+        RemoteCategoryWebClient webClient = new RemoteCategoryWebClient(remoteCategoryService);
         final var result = webClient.getFirstLevelCategories();
 
         assertThat(result).isEqualTo(expected);
@@ -56,7 +57,11 @@ class TestClass {
     }
 
     private class RemoteCategoryWebClient {
-        private RemoteCategoryService remoteCategoryService;
+        private final RemoteCategoryService remoteCategoryService;
+
+        private RemoteCategoryWebClient(RemoteCategoryService remoteCategoryService) {
+            this.remoteCategoryService = remoteCategoryService;
+        }
 
         public List<RemoteCategoryDto> getFirstLevelCategories() {
             RemoteCategoryResponseDto response = remoteCategoryService.getFirstLevelPaginated(1);
