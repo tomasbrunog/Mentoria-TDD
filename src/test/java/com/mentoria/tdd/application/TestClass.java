@@ -1,6 +1,7 @@
 package com.mentoria.tdd.application;
 
 import com.mentoria.tdd.domain.Category;
+import com.mentoria.tdd.rest.CategoriesController;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class TestClass {
+
+    private CategoryService service = new CategoryService();
 
     @Test
     void should_return_first_level_categories() {
