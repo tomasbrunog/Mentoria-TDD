@@ -56,7 +56,8 @@ class TestClass {
 
     private class RemoteCategoryWebClient {
         public List<RemoteCategoryDto> getFirstLevelCategories() {
-            throw new RuntimeException("Method Not implemented");
+            RemoteCategoryResponseDto response = remoteCategoryService.getFirstLevelPaginated(1);
+            return response.getElements();
         }
     }
 }
