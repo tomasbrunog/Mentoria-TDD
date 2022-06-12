@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class CategoryFeatureSliceApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void should_return_200_when_getting_gategory_list() {
+		fail();
 	}
 
 }
