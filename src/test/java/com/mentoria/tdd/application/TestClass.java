@@ -1,5 +1,6 @@
 package com.mentoria.tdd.application;
 
+import com.mentoria.tdd.domain.Category;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
