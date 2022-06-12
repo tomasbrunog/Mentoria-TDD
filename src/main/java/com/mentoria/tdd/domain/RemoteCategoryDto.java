@@ -1,11 +1,16 @@
 package com.mentoria.tdd.domain;
 
-import lombok.Data;
+import lombok.Getter;
 
 import java.io.Serializable;
 
-@Data
+@Getter
 public class RemoteCategoryDto implements Serializable {
-    private Integer code;
-    private String description;
+    private final Integer code;
+    private final String description;
+
+    public RemoteCategoryDto(Integer code, String description) {
+        this.code = code;
+        this.description = description;
+    }
 }

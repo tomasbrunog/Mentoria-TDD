@@ -46,6 +46,10 @@ class TestClass {
     }
 
     private List<RemoteCategoryDto> buildWebClientExpectedResult() {
-        return null;
+        return List.of(
+                new RemoteCategoryDto(1, "Cat A"),
+                new RemoteCategoryDto(2, "Cat B"),
+                new RemoteCategoryDto(3, "Cat C")
+        );
     }
 }
