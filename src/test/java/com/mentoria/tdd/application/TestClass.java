@@ -53,4 +53,10 @@ class TestClass {
                 new RemoteCategoryDto(3, "Cat C")
         );
     }
+
+    private class RemoteCategoryWebClient {
+        public List<RemoteCategoryDto> getFirstLevelCategories() {
+            throw new RuntimeException("Method Not implemented");
+        }
+    }
 }
