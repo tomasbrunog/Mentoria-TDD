@@ -40,9 +40,10 @@ class TestClass {
     @Test
     void should_fetch_first_level_remote_category_list_from_marketplace() {
         final var expected = buildWebClientExpectedResult();
+        RemoteCategoryWebClient webClient = new RemoteCategoryWebClient();
         final var result = webClient.getFirstLevelCategories();
 
-        assertThat(result).isEqualsTo(expected);
+        assertThat(result).isEqualTo(expected);
     }
 
     private List<RemoteCategoryDto> buildWebClientExpectedResult() {
