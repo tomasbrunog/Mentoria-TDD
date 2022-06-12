@@ -1,6 +1,7 @@
 package com.mentoria.tdd.application;
 
 import com.mentoria.tdd.domain.Category;
+import com.mentoria.tdd.domain.RemoteCategoryDto;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
