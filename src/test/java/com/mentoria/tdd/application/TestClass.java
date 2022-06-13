@@ -6,10 +6,7 @@ import com.mentoria.tdd.domain.RemoteCategoryResponseDto;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -59,7 +56,6 @@ class TestClass {
         final var categoryTwo = new RemoteCategoryDto(2, "Cat B");
         final var pageOne = new RemoteCategoryResponseDto(1, 3, List.of(categoryOne, categoryTwo));
 
-
         final var categoryThree = new RemoteCategoryDto(3, "Cat C");
         final var pageTwo = new RemoteCategoryResponseDto(2, 3, Collections.singletonList(categoryThree));
 
@@ -87,7 +83,14 @@ class TestClass {
 
         public List<RemoteCategoryDto> getFirstLevelCategories() {
             RemoteCategoryResponseDto response = remoteCategoryService.getFirstLevelPaginated(1);
-            return response.getElements();
+            var elements = new ArrayList<>(response.getElements());
+            final double totalRecords = response.getTotalRecords();
+            final double recordsPerPage = response.getElements().size();
+            final var totalPages = Math.ceil(totalRecords / recordsPerPage);
+            for (var i = 2; i <= totalPages; i++) {
+                elements.addAll(remoteCategoryService.getFirstLevelPaginated(i).getElements());
+            }
+            return elements;
         }
     }
 }
