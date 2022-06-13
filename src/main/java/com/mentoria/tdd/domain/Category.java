@@ -1,5 +1,8 @@
 package com.mentoria.tdd.domain;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
 public class Category {
     private String codeInMarketplace;
     private String name;
