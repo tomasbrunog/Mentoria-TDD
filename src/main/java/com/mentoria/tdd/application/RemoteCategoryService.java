@@ -6,13 +6,14 @@ import com.mentoria.tdd.domain.RemoteCategoryResponseDto;
 import java.util.ArrayList;
 import java.util.List;
 
-class RemoteCategoryService {
+class RemoteCategoryService implements RemoteCategoryServiceAbstraction {
     private final RemoteCategoryWebClient remoteCategoryWebClient;
 
     RemoteCategoryService(RemoteCategoryWebClient remoteCategoryWebClient) {
         this.remoteCategoryWebClient = remoteCategoryWebClient;
     }
 
+    @Override
     public List<RemoteCategoryDto> getFirstLevelCategories() {
         RemoteCategoryResponseDto response = remoteCategoryWebClient.getFirstLevelPaginated(1);
         var elements = new ArrayList<>(response.getElements());

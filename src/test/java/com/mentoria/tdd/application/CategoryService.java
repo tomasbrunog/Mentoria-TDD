@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 class CategoryService {
-    private final RemoteCategoryService remoteCategoryService;
+    private final RemoteCategoryServiceAbstraction remoteCategoryService;
 
-    CategoryService(RemoteCategoryService remoteCategoryService) {
+    CategoryService(RemoteCategoryServiceAbstraction remoteCategoryService) {
         this.remoteCategoryService = remoteCategoryService;
     }
 
