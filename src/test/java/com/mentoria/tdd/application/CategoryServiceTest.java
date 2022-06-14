@@ -20,6 +20,17 @@ class CategoryServiceTest {
         assertThat(result).isEqualTo(expected);
     }
 
+    @Test
+    void should_return_first_level_categories_using_stub() {
+        final var expected = new StubCategoryService.Builder().withElements(3).result().getFirstLevelCategories();
+
+        final CategoryService service = new CategoryService(StubRemoteCategoryService.buildStubWith3ElementsWithNumberNames());
+
+        final var result = service.getFirstLevelCategories();
+
+        assertThat(result).isEqualTo(expected);
+    }
+
     private List<Category> buildExpectedResultSample() {
         final var categoryOne = new Category("1", "Cat A");
         final var categoryTwo = new Category("2", "Cat B");
