@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -35,24 +34,12 @@ class CategoryServiceTest {
     private List<RemoteCategoryResponseDto> buildResponseStubs() {
         final var categoryOne = new RemoteCategoryDto(1, "Cat A");
         final var categoryTwo = new RemoteCategoryDto(2, "Cat B");
-        final var pageOne = new RemoteCategoryResponseDto(1, 3, List.of(categoryOne, categoryTwo));
-
         final var categoryThree = new RemoteCategoryDto(3, "Cat C");
+
+        final var pageOne = new RemoteCategoryResponseDto(1, 3, List.of(categoryOne, categoryTwo));
         final var pageTwo = new RemoteCategoryResponseDto(2, 3, Collections.singletonList(categoryThree));
 
         return List.of(pageOne, pageTwo);
     }
 
-    private class CategoryService {
-        private final RemoteCategoryService remoteCategoryService;
-
-        private CategoryService(RemoteCategoryService remoteCategoryService) {
-            this.remoteCategoryService = remoteCategoryService;
-        }
-
-        public List<Category> getFirstLevelCategories() {
-            final var remoteCategories = remoteCategoryService.getFirstLevelCategories();
-            return remoteCategories.stream().map(dto -> new Category(dto.getCode().toString(), dto.getDescription())).collect(Collectors.toList());
-        }
-    }
 }
