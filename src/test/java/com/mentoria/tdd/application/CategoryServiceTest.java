@@ -9,7 +9,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class CategoryServiceTest {
 
-    private final CategoryService service = new CategoryService(new RemoteCategoryService(StubRemoteCategoryWebClient.buildWith2PagesAnd3TotalRecords()));
+    private final CategoryService service = new CategoryService(StubRemoteCategoryService.buildStubWith3Elements());
 
     @Test
     void should_return_first_level_categories() {
