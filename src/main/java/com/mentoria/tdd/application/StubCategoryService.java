@@ -2,10 +2,11 @@ package com.mentoria.tdd.application;
 
 import com.mentoria.tdd.domain.Category;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StubCategoryService implements CategoryServiceAbstraction {
-    private List<Category> db;
+    private final List<Category> db = new ArrayList<>();
 
     @Override
     public List<Category> getFirstLevelCategories() {
