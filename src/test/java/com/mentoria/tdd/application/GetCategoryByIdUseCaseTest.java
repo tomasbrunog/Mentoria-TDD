@@ -14,6 +14,7 @@ class GetCategoryByIdUseCaseTest {
     @Test
     void should_get_category_by_id_from_marketplace() {
         final var expected = buildExpectedResultSample();
+        CategoryServiceAbstraction categoryService = new CategoryService(new RemoteCategoryService(StubRemoteCategoryWebClient.buildWithStubCategoryDb(List.of(buildRemoteResponseStub()))));
         final var result = categoryService.findById(ID);
         assertThat(result.getCodeInMarketplace()).isAString();
         assertThat(result.getName()).isAString();

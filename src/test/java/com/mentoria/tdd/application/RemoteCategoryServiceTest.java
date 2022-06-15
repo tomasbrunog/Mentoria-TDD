@@ -12,7 +12,7 @@ class RemoteCategoryServiceTest {
     @Test
     void should_fetch_first_level_categories_from_marketplace() {
         final var expected = buildWebClientExpectedResult();
-        final var stubWebClient = StubRemoteCategoryWebClient.buildWith2PagesAnd3TotalRecords();
+        final var stubWebClient = StubRemoteCategoryWebClient.buildFirstLevelResponseStubWith2PagesAnd3TotalRecords();
         final var service = new RemoteCategoryService(stubWebClient);
 
         final var result = service.getFirstLevelCategories();
