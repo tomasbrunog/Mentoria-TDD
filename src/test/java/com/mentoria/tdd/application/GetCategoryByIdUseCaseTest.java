@@ -23,11 +23,10 @@ class GetCategoryByIdUseCaseTest {
     }
 
     private Category buildExpectedResultSample() {
-        final var category = new Category("56", "Cat A");
-        category.setChildren(List.of(
+        final var children = (List.of(
                 new Category("48", "Cat C"),
                 new Category("92", "Cat D")
         ));
-        return category;
+        return new Category("56", "Cat A", children);
     }
 }
