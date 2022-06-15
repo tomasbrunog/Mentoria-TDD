@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CategoryServiceAbstraction {
     List<Category> getFirstLevelCategories();
+
+    Category findById(Long id);
 }
