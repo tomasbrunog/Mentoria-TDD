@@ -16,9 +16,6 @@ class GetCategoryByIdUseCaseTest {
         final var expected = buildExpectedResultSample();
         CategoryServiceAbstraction categoryService = new CategoryService(new RemoteCategoryService(StubRemoteCategoryWebClient.buildWithStubCategoryDb(List.of(buildRemoteResponseStub()))));
         final var result = categoryService.findById(ID);
-        assertThat(result.getCodeInMarketplace()).isAString();
-        assertThat(result.getName()).isAString();
-        assertThat(result.getChildren()).isArrayOfSize(2);
         assertThat(result).isEqualTo(expected);
     }
 
@@ -32,8 +29,8 @@ class GetCategoryByIdUseCaseTest {
 
     private RemoteCategoryDto buildRemoteResponseStub() {
         final var subcategories = List.of(
-                new RemoteCategoryDto(48, "Cat C");
-                new RemoteCategoryDto(92, "Cat D");
+                new RemoteCategoryDto(48, "Cat C"),
+                new RemoteCategoryDto(92, "Cat D")
         );
         return new RemoteCategoryDto(56, "Cat A", subcategories);
     }

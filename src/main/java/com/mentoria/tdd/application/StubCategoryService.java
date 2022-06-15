@@ -17,6 +17,11 @@ public class StubCategoryService implements CategoryServiceAbstraction {
         return db;
     }
 
+    @Override
+    public Category findById(Long id) {
+        throw new RuntimeException("not implemented");
+    }
+
     public static class Builder {
         private static final List<Category> db = new ArrayList<>();
 
