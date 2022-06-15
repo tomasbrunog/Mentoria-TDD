@@ -31,4 +31,9 @@ public class StubRemoteCategoryService implements RemoteCategoryServiceAbstracti
         return db;
     }
 
+    @Override
+    public RemoteCategoryDto findById(Long id) {
+        throw new RuntimeException("not implemented");
+    }
+
 }

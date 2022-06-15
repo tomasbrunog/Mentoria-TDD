@@ -20,6 +20,7 @@ class CategoryService implements CategoryServiceAbstraction {
 
     @Override
     public Category findById(Long id) {
+        remoteCategoryService.findById(id);
         throw new RuntimeException("not implemented");
     }
 }

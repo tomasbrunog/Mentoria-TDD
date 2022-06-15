@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface RemoteCategoryServiceAbstraction {
     List<RemoteCategoryDto> getFirstLevelCategories();
+    RemoteCategoryDto findById(Long id);
 }

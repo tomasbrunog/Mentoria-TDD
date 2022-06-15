@@ -25,4 +25,9 @@ class RemoteCategoryService implements RemoteCategoryServiceAbstraction {
         }
         return elements;
     }
+
+    @Override
+    public RemoteCategoryDto findById(Long id) {
+        throw new RuntimeException("not implemented");
+    }
 }
