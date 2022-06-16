@@ -1,5 +1,7 @@
 package com.mentoria.tdd;
 
+import com.mentoria.tdd.application.RemoteCategoryWebClient;
+import com.mentoria.tdd.application.StubRemoteCategoryWebClient;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +22,15 @@ class CategoryFeatureSliceApplicationTests {
 	@Autowired
 	MockMvc mockMvc;
 
+    RemoteCategoryWebClient webClient = StubRemoteCategoryWebClient.buildFirstLevelResponseStubWith2PagesAnd3TotalRecords();
+
     @Test
     void should_return_200_when_getting_category_list() throws Exception {
         mockMvc.perform(get("/api/categories").contentType(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isOk());
     }
 
     @Test
-    void should_return_category_list() throws Exception {
+    void should_return_first_level_categories() throws Exception {
         final var result = mockMvc.perform(get("/api/categories").contentType(MediaType.APPLICATION_JSON)).andDo(print())
                 .andExpect(jsonPath("$", arrayWithSize(3)))
                 .andExpect(jsonPath("$[0]", hasSize(2)))
