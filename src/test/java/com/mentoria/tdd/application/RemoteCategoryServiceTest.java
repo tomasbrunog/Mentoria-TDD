@@ -11,7 +11,7 @@ class RemoteCategoryServiceTest {
 
     @Test
     void should_fetch_first_level_categories_from_marketplace() {
-        final var expected = buildWebClientExpectedResult();
+        final var expected = buildExpectedFirstLevelCategoriesSample();
         final var stubWebClient = StubRemoteCategoryWebClient.buildFirstLevelResponseStubWith2PagesAnd3TotalRecords();
         final var service = new RemoteCategoryService(stubWebClient);
 
@@ -20,7 +20,7 @@ class RemoteCategoryServiceTest {
         assertThat(result).isEqualTo(expected);
     }
 
-    private List<RemoteCategoryDto> buildWebClientExpectedResult() {
+    private List<RemoteCategoryDto> buildExpectedFirstLevelCategoriesSample() {
         return List.of(
                 new RemoteCategoryDto(1, "Cat A"),
                 new RemoteCategoryDto(2, "Cat B"),

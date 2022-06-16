@@ -26,6 +26,10 @@ public class StubRemoteCategoryService implements RemoteCategoryServiceAbstracti
         ));
     }
 
+    public static RemoteCategoryServiceAbstraction buildWithSamples(List<RemoteCategoryDto> stubDb) {
+        return new StubRemoteCategoryService(stubDb);
+    }
+
     @Override
     public List<RemoteCategoryDto> getFirstLevelCategories() {
         return db;
@@ -33,7 +37,7 @@ public class StubRemoteCategoryService implements RemoteCategoryServiceAbstracti
 
     @Override
     public RemoteCategoryDto findById(Long id) {
-        throw new RuntimeException("not implemented");
+        return db.stream().filter(dto -> id.equals(dto.getCode().longValue())).findFirst().orElseThrow();
     }
 
 }
