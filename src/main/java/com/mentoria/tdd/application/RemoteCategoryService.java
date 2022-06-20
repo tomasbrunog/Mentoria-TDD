@@ -28,6 +28,6 @@ class RemoteCategoryService implements RemoteCategoryServiceAbstraction {
 
     @Override
     public RemoteCategoryDto findById(Long id) {
-        throw new RuntimeException("not implemented");
+        return remoteCategoryWebClient.findById(id);
     }
 }

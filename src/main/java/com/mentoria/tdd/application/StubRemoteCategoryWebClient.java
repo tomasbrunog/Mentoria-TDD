@@ -25,6 +25,11 @@ public class StubRemoteCategoryWebClient implements RemoteCategoryWebClient {
         return firstLevelCategoryResponseStubs.get(pageNumber - 1);
     }
 
+    @Override
+    public RemoteCategoryDto findById(Long id) {
+        return categoryDb.stream().filter(category -> category.getCode().equals(id.intValue())).findFirst().orElseThrow();
+    }
+
     public static StubRemoteCategoryWebClient buildFirstLevelResponseStubWith2PagesAnd3TotalRecords() {
         final var categoryOne = new RemoteCategoryDto(1, "Cat A");
         final var categoryTwo = new RemoteCategoryDto(2, "Cat B");
