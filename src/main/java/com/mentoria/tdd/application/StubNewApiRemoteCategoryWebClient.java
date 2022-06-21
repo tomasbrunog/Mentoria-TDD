@@ -8,11 +8,11 @@ import java.util.Map;
 
 public class StubNewApiRemoteCategoryWebClient implements NewApiRemoteCategoryWebClient {
 
-    private final Map<Integer, NewApiRemoteCategoryResponseDto> responseDb;
-    public StubNewApiRemoteCategoryWebClient(NewApiRemoteCategoryResponseDto firstStub, NewApiRemoteCategoryResponseDto secondStub) {
-        responseDb = new HashMap<>();
-        responseDb.put(1, firstStub);
-        responseDb.put(2, secondStub);
+    private final Map<Integer, NewApiRemoteCategoryResponseDto> responseDb = new HashMap<>();
+    public StubNewApiRemoteCategoryWebClient(NewApiRemoteCategoryResponseDto... stubs) {
+        for (final var stub : stubs) {
+            responseDb.put(stub.getPageNumber(), stub);
+        }
     }
 
     @Override
