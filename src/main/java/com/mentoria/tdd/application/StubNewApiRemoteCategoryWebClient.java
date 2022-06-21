@@ -8,16 +8,16 @@ import java.util.Map;
 
 public class StubNewApiRemoteCategoryWebClient implements NewApiRemoteCategoryWebClient {
 
-    private final Map<Long, NewApiRemoteCategoryResponseDto> responseDb;
+    private final Map<Integer, NewApiRemoteCategoryResponseDto> responseDb;
     public StubNewApiRemoteCategoryWebClient(NewApiRemoteCategoryResponseDto firstStub, NewApiRemoteCategoryResponseDto secondStub) {
         responseDb = new HashMap<>();
-        responseDb.put(1L, firstStub);
-        responseDb.put(2L, secondStub);
+        responseDb.put(1, firstStub);
+        responseDb.put(2, secondStub);
     }
 
     @Override
     public NewApiRemoteCategoryResponseDto findAllPaginated(Integer pageNumber) {
-        throw new RuntimeException("not implemented");
+        return responseDb.get(pageNumber);
     }
 
     @Override
