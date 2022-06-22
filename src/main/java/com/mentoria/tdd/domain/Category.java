@@ -1,9 +1,11 @@
 package com.mentoria.tdd.domain;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 import java.util.List;
 
+@Getter
 @EqualsAndHashCode
 public class Category {
     private final String codeInMarketplace;

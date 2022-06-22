@@ -41,6 +41,10 @@ public class NewApiCategoryService implements CategoryServiceAbstraction {
 
     @Override
     public Category findById(Long id) {
-        throw new RuntimeException("not implemented");
+        final var remoteSubcategories = webClient.findAllByParentId(id);
+        final var remoteCategory = webClient.findById(id);
+
+        final var children = remoteSubcategories.stream().map(dto -> new Category(dto.getCode().toString(), dto.getDescription())).collect(Collectors.toList());
+        return new Category(remoteCategory.getCode().toString(), remoteCategory.getDescription(), children);
     }
 }

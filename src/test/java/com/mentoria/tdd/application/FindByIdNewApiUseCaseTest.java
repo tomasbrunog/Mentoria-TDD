@@ -5,13 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FindByIdNewApiUseCaseTest {
-    private static final Long ID = 1L;
+class FindByIdNewApiUseCaseTest {
 
     @Test
     void should_find_category_by_id_from_marketplace() {
-        CategoryServiceAbstraction service = new NewApiCategoryService(new StubNewApiRemoteCategoryWebClient());
-        Category result = service.findById(ID);
-        assertThat(result).isEqualTo(TestObjectFactory.ExampleA.buildCategory());
+        final var expected = TestObjectFactory.ExampleA.buildCategory();
+        final var id = Long.parseLong(expected.getCodeInMarketplace());
+        CategoryServiceAbstraction service = new NewApiCategoryService(new StubNewApiRemoteCategoryWebClient(TestObjectFactory.ExampleA.buildNewApiRemoteCategoryList()));
+
+        final var result = service.findById(id);
+
+        assertThat(result).isEqualTo(expected);
     }
 }

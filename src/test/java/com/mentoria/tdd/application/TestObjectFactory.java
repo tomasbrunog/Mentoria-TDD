@@ -20,6 +20,15 @@ public class TestObjectFactory {
             return List.of(categoryOne, categoryTwo);
         }
 
+        public static List<NewApiRemoteCategoryDto> buildNewApiRemoteCategoryList() {
+            return List.of(
+                    new NewApiRemoteCategoryDto(43L, "Cat A", 56L),
+                    new NewApiRemoteCategoryDto(23L, "Cat B", null),
+                    new NewApiRemoteCategoryDto(56L, "Cat C", null),
+                    new NewApiRemoteCategoryDto(92L, "Cat D", 56L)
+            );
+        }
+
         private NewApiRemoteCategoryResponseDto buildNewApiRemoteCategoryResponse() {
             final var secondLevelCategory = new NewApiRemoteCategoryDto(43L, "Cat A", 56L);
             final var firstLevelCategory = new NewApiRemoteCategoryDto(23L, "Cat B", null);
