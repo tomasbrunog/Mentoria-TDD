@@ -11,18 +11,18 @@ import java.util.stream.Collectors;
 
 import static java.util.Objects.nonNull;
 
-public class StubNewApiRemoteCategoryWebClient implements NewApiRemoteCategoryWebClient {
+public class FakeNewApiRemoteCategoryWebClient implements NewApiRemoteCategoryWebClient {
 
     private final Map<Integer, NewApiRemoteCategoryResponseDto> responseDb = new HashMap<>();
     private List<NewApiRemoteCategoryDto> db = new ArrayList<>();
 
-    public StubNewApiRemoteCategoryWebClient(NewApiRemoteCategoryResponseDto... stubs) {
+    public FakeNewApiRemoteCategoryWebClient(NewApiRemoteCategoryResponseDto... stubs) {
         for (final var stub : stubs) {
             responseDb.put(stub.getPageNumber(), stub);
         }
     }
 
-    public StubNewApiRemoteCategoryWebClient(List<NewApiRemoteCategoryDto> db) {
+    public FakeNewApiRemoteCategoryWebClient(List<NewApiRemoteCategoryDto> db) {
         this.db = db;
     }
 

@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class GetFirstLevelCategoriesNewApiUseCaseTest {
     @Test
     void should_get_first_level_categories_from_marketplace() {
-        CategoryServiceAbstraction service = new NewApiCategoryService(new StubNewApiRemoteCategoryWebClient(buildFirstPageStub(), buildSecondPageStub()));
+        CategoryServiceAbstraction service = new NewApiCategoryService(new FakeNewApiRemoteCategoryWebClient(buildFirstPageStub(), buildSecondPageStub()));
         List<Category> result = service.getFirstLevelCategories();
         assertThat(result).isEqualTo(buildExpectedResult());
     }
