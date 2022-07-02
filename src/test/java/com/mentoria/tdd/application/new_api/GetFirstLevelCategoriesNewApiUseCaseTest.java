@@ -1,5 +1,8 @@
-package com.mentoria.tdd.application;
+package com.mentoria.tdd.application.new_api;
 
+import com.mentoria.tdd.application.CategoryServiceAbstraction;
+import com.mentoria.tdd.application.new_api.FakeNewApiRemoteCategoryWebClient;
+import com.mentoria.tdd.application.new_api.NewApiCategoryService;
 import com.mentoria.tdd.domain.Category;
 import com.mentoria.tdd.domain.NewApiRemoteCategoryDto;
 import com.mentoria.tdd.domain.NewApiRemoteCategoryResponseDto;

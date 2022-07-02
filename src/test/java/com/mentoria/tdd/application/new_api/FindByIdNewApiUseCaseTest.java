@@ -1,5 +1,9 @@
-package com.mentoria.tdd.application;
+package com.mentoria.tdd.application.new_api;
 
+import com.mentoria.tdd.application.CategoryServiceAbstraction;
+import com.mentoria.tdd.application.TestObjectFactory;
+import com.mentoria.tdd.application.new_api.FakeNewApiRemoteCategoryWebClient;
+import com.mentoria.tdd.application.new_api.NewApiCategoryService;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

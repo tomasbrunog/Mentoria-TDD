@@ -1,5 +1,6 @@
-package com.mentoria.tdd.application;
+package com.mentoria.tdd.application.new_api;
 
+import com.mentoria.tdd.application.CategoryServiceAbstraction;
 import com.mentoria.tdd.domain.Category;
 import com.mentoria.tdd.domain.NewApiRemoteCategoryDto;
 
@@ -28,8 +29,7 @@ public class NewApiCategoryService implements CategoryServiceAbstraction {
     private List<NewApiRemoteCategoryDto> fetchAllCategoriesFromMarketplace() {
 
         var resultPage = webClient.findAllPaginated(1);
-        var categories = new ArrayList<NewApiRemoteCategoryDto>();
-        categories.addAll(resultPage.getElements());
+        var categories = new ArrayList<>(resultPage.getElements());
 
         var totalPages = Math.ceil(resultPage.getTotalRecords().doubleValue() / categories.size());
         for (int i = 2; i <= totalPages; i++) {

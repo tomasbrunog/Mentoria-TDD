@@ -1,4 +1,4 @@
-package com.mentoria.tdd.application;
+package com.mentoria.tdd.application.new_api;
 
 import com.mentoria.tdd.domain.NewApiRemoteCategoryDto;
 import com.mentoria.tdd.domain.NewApiRemoteCategoryResponseDto;
