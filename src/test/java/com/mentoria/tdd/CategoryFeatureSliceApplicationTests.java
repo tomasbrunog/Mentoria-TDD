@@ -15,8 +15,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Disabled("acceptance tests")
-@WebMvcTest
+@SpringBootTest
+@AutoConfigureMockMvc
 class CategoryFeatureSliceApplicationTests {
 
 	@Autowired
@@ -30,7 +30,7 @@ class CategoryFeatureSliceApplicationTests {
     }
 
     @Test
-    void should_return_first_level_categories() throws Exception {
+    void should_get_root_categories() throws Exception {
         final var result = mockMvc.perform(get("/api/categories").contentType(MediaType.APPLICATION_JSON)).andDo(print())
                 .andExpect(jsonPath("$", arrayWithSize(3)))
                 .andExpect(jsonPath("$[0]", hasSize(2)))
