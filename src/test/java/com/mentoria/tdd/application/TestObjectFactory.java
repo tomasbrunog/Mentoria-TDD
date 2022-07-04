@@ -1,10 +1,8 @@
 package com.mentoria.tdd.application;
 
-import com.mentoria.tdd.domain.Category;
-import com.mentoria.tdd.domain.NewApiRemoteCategoryDto;
-import com.mentoria.tdd.domain.NewApiRemoteCategoryResponseDto;
-import com.mentoria.tdd.domain.RemoteCategoryDto;
+import com.mentoria.tdd.domain.*;
 
+import java.util.Collections;
 import java.util.List;
 
 public class TestObjectFactory {
@@ -55,6 +53,21 @@ public class TestObjectFactory {
             return List.of(categoryOne, categoryTwo, categoryThree);
         }
 
+        public static class RemoteCategoryResponseDto {
+            public com.mentoria.tdd.domain.RemoteCategoryResponseDto buildPageOne() {
+                final var categoryOne = new RemoteCategoryDto(1, "Cat A");
+                final var categoryTwo = new RemoteCategoryDto(2, "Cat B");
 
+                return new com.mentoria.tdd.domain.RemoteCategoryResponseDto(1, 3, List.of(categoryOne, categoryTwo));
+            }
+
+            public com.mentoria.tdd.domain.RemoteCategoryResponseDto buildPageTwo() {
+                final var categoryThree = new RemoteCategoryDto(3, "Cat C");
+
+                return new com.mentoria.tdd.domain.RemoteCategoryResponseDto(2, 3, Collections.singletonList(categoryThree));
+            }
+
+
+        }
     }
 }
