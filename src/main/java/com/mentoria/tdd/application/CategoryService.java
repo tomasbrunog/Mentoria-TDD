@@ -1,10 +1,12 @@
 package com.mentoria.tdd.application;
 
 import com.mentoria.tdd.domain.Category;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 class CategoryService implements CategoryServiceAbstraction {
     private final RemoteCategoryServiceAbstraction remoteCategoryService;
 

@@ -2,10 +2,12 @@ package com.mentoria.tdd.application;
 
 import com.mentoria.tdd.domain.RemoteCategoryDto;
 import com.mentoria.tdd.domain.RemoteCategoryResponseDto;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 class RemoteCategoryService implements RemoteCategoryServiceAbstraction {
     private final RemoteCategoryWebClient remoteCategoryWebClient;
 
