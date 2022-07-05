@@ -25,7 +25,7 @@ class CategoryService implements CategoryServiceAbstraction {
     @Override
     public Category findById(Long id) {
         final var remoteCategory = remoteCategoryService.findById(id);
-        var subCategories = remoteCategory.getSubcategories().stream().map(dto -> new Category(dto.getCode().toString(), dto.getDescription())).collect(Collectors.toList());
+        var subCategories = remoteCategory.getSubcategories().stream().map(translator::toEntity).collect(Collectors.toList());
         return new Category(remoteCategory.getCode().toString(), remoteCategory.getDescription(), subCategories);
     }
 }
