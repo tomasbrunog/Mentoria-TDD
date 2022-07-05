@@ -1,6 +1,7 @@
 package com.mentoria.tdd.application;
 
 import com.mentoria.tdd.domain.Category;
+import com.mentoria.tdd.domain.RemoteCategoryDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +15,14 @@ class CategoryService implements CategoryServiceAbstraction {
         this.remoteCategoryService = remoteCategoryService;
     }
 
+    private static Category toEntity(RemoteCategoryDto dto) {
+        return new Category(dto.getCode().toString(), dto.getDescription());
+    }
+
     @Override
     public List<Category> getFirstLevelCategories() {
         final var remoteCategories = remoteCategoryService.getFirstLevelCategories();
-        return remoteCategories.stream().map(dto -> new Category(dto.getCode().toString(), dto.getDescription())).collect(Collectors.toList());
+        return remoteCategories.stream().map(CategoryService::toEntity).collect(Collectors.toList());
     }
 
     @Override
