@@ -44,7 +44,7 @@ class CategoryFeatureSliceApplicationTests {
     void should_get_root_categories() throws Exception {
         final var result = mockMvc.perform(get("/api/categories").contentType(MediaType.APPLICATION_JSON)).andDo(print())
                 .andExpect(jsonPath("$", hasSize(3)))
-                .andExpect(jsonPath("$[0]", aMapWithSize(3)))
+                .andExpect(jsonPath("$[0]", aMapWithSize(2)))
                 .andExpect(jsonPath("$[0]", hasKey("codeInMarketplace")))
                 .andExpect(jsonPath("$[0].codeInMarketplace", isA(String.class)))
                 .andExpect(jsonPath("$[0]", hasKey("name")))
