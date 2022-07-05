@@ -1,7 +1,7 @@
 package com.mentoria.tdd.rest;
 
 import com.mentoria.tdd.application.CategoryServiceAbstraction;
-import com.mentoria.tdd.domain.Category;
+import com.mentoria.tdd.application.CategoryTranslator;
 import com.mentoria.tdd.domain.RootCategoryDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,17 +13,15 @@ import java.util.stream.Collectors;
 public class CategoriesController {
 
     private final CategoryServiceAbstraction categoryService;
+    private final CategoryTranslator translator;
 
-    public CategoriesController(CategoryServiceAbstraction categoryService) {
+    public CategoriesController(CategoryServiceAbstraction categoryService, CategoryTranslator translator) {
         this.categoryService = categoryService;
+        this.translator = translator;
     }
 
     @GetMapping("/api/categories")
     public List<RootCategoryDto> getFirstLevelCategories() {
-        return categoryService.getFirstLevelCategories().stream().map(this::toDto).collect(Collectors.toList());
-    }
-
-    private RootCategoryDto toDto(Category entity) {
-        return new RootCategoryDto(entity.getCodeInMarketplace(), entity.getName());
+        return categoryService.getFirstLevelCategories().stream().map(translator::toDto).collect(Collectors.toList());
     }
 }
