@@ -1,0 +1,46 @@
+{
+  "page_number": 2,
+  "total_records": 25,
+  "elements": [
+    {
+      "code": 47,
+      "description": "ACC CALEFACCION"
+    },
+    {
+      "code": 135,
+      "description": "ACC COLCHONES SOMMIERS"
+    },
+    {
+      "code": 69,
+      "description": "ACC COMPUTACION"
+    },
+    {
+      "code": 274,
+      "description": "ACC DORMITORIO"
+    },
+    {
+      "code": 203,
+      "description": "ACC FOTOGRAFIA"
+    },
+    {
+      "code": 157,
+      "description": "ACC LINEA BLANCA"
+    },
+    {
+      "code": 266,
+      "description": "ACC LIVING"
+    },
+    {
+      "code": 99,
+      "description": "ACC TELEFONIA"
+    },
+    {
+      "code": 15,
+      "description": "ACC TV VIDEO FILMADORAS"
+    },
+    {
+      "code": 328,
+      "description": "ACCESORIOS BEBE"
+    }
+  ]
+}

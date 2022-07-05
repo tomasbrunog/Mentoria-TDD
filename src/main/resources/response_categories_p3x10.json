@@ -1,0 +1,26 @@
+{
+  "page_number": 3,
+  "total_records": 25,
+  "elements": [
+    {
+      "code": 319,
+      "description": "ACCESORIOS BICICLETA"
+    },
+    {
+      "code": 331,
+      "description": "ACCESORIOS ELECTRICOS"
+    },
+    {
+      "code": 330,
+      "description": "ACCESORIOS LIMPIEZA"
+    },
+    {
+      "code": 76,
+      "description": "AFEITADORAS"
+    },
+    {
+      "code": 70,
+      "description": "AGENDAS Y CALCULADORAS"
+    }
+  ]
+}

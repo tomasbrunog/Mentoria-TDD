@@ -1,19 +1,23 @@
 package com.mentoria.tdd.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class RemoteCategoryResponseDto implements Serializable {
-    private final Integer pageNumber;
-    private final Integer totalRecords;
-    private final List<RemoteCategoryDto> elements;
+    @JsonProperty("page_number")
+    private Integer pageNumber;
+    @JsonProperty("total_records")
+    private Integer totalRecords;
+    @JsonProperty("elements")
+    private List<RemoteCategoryDto> elements;
 
-    public RemoteCategoryResponseDto(Integer pageNumber, Integer totalRecords, List<RemoteCategoryDto> elements) {
-        this.pageNumber = pageNumber;
-        this.totalRecords = totalRecords;
-        this.elements = elements;
-    }
+
 }

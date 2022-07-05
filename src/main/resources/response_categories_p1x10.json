@@ -1,0 +1,46 @@
+{
+  "page_number": 1,
+  "total_records": 25,
+  "elements": [
+    {
+      "code": 63,
+      "description": "AA PARED FRIO SOLO"
+    },
+    {
+      "code": 247,
+      "description": "AA PORTATIL FRIO CALOR"
+    },
+    {
+      "code": 365,
+      "description": "AA SPLIT FC 4001 A 9000W"
+    },
+    {
+      "code": 364,
+      "description": "AA SPLIT FC HASTA 4000W"
+    },
+    {
+      "code": 245,
+      "description": "AA SPLIT FRIO CALOR"
+    },
+    {
+      "code": 64,
+      "description": "AA SPLIT FRIO SOLO"
+    },
+    {
+      "code": 369,
+      "description": "AA SPLIT INV FC MAS DE 9000W"
+    },
+    {
+      "code": 367,
+      "description": "AA SPLIT INV. FC 4001 A 9000W"
+    },
+    {
+      "code": 366,
+      "description": "AA SPLIT INV. FC HASTA 4000W"
+    },
+    {
+      "code": 368,
+      "description": "AA SPLIT M┴S DE 9000W"
+    }
+  ]
+}
