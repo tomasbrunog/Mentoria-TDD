@@ -135,15 +135,15 @@ Their API:
   {
     "codeInMarketplace": "56",
     "name": "Cat A"
-	},
-	{
-	  "codeInMarketplace": "112",
-	  "name": "Cat B"
-	},
-	{
-	  "codeInMarketplace": "43",
-	  "name": "Cat C"
-	}
+  },
+  {
+    "codeInMarketplace": "112",
+    "name": "Cat B"
+  },
+  {
+    "codeInMarketplace": "43",
+    "name": "Cat C"
+  }
 ]
 ```
 
