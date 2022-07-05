@@ -10,11 +10,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class GetCategoryByIdUseCaseTest {
     private static final Long ID = 56L;
+    private final CategoryTranslator translator = new CategoryTranslator();
 
     @Test
     void should_get_category_by_id_from_marketplace() {
         final var expected = buildExpectedResultSample();
-        CategoryServiceAbstraction categoryService = new CategoryService(StubRemoteCategoryService.buildWithSamples(List.of(buildRemoteResponseStub())));
+        CategoryServiceAbstraction categoryService = new CategoryService(StubRemoteCategoryService.buildWithSamples(List.of(buildRemoteResponseStub())), translator);
         final var result = categoryService.findById(ID);
         assertThat(result).isEqualTo(expected);
     }

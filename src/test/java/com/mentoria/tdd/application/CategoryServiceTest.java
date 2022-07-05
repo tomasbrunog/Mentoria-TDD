@@ -9,13 +9,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class CategoryServiceTest {
 
-    private final CategoryService service = new CategoryService(StubRemoteCategoryService.buildStubWith3Elements());
+    private final CategoryTranslator translator = new CategoryTranslator();
+    private final CategoryService testSubject = new CategoryService(StubRemoteCategoryService.buildStubWith3Elements(), translator);
 
     @Test
     void should_return_first_level_categories() {
         final var expected = buildExpectedResultSample();
 
-        final var result = service.getFirstLevelCategories();
+        final var result = testSubject.getFirstLevelCategories();
 
         assertThat(result).isEqualTo(expected);
     }
@@ -32,7 +33,7 @@ class CategoryServiceTest {
     void should_return_first_level_categories_using_stub() {
         final var expected = new StubCategoryService.Builder().withElements(3).result().getFirstLevelCategories();
 
-        final CategoryService service = new CategoryService(StubRemoteCategoryService.buildStubWith3ElementsWithNumberNames());
+        final CategoryService service = new CategoryService(StubRemoteCategoryService.buildStubWith3ElementsWithNumberNames(), translator);
 
         final var result = service.getFirstLevelCategories();
 
